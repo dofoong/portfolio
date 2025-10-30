@@ -1,8 +1,8 @@
 <template>
   <q-layout>
     <div style="height: 50px">
-      <q-toolbar class="flex flex-center" :class="pageScroll ? 'dragNav' : 'normalNav'">
-        <div class="row items-center full-width" style="max-width: 1200px">
+      <!-- <q-toolbar class="flex flex-center" :class="pageScroll ? 'dragNav' : 'normalNav'">
+        <div class="row items-center full-width" :style="{ maxWidth: maxWidth }">
           <q-toolbar-title class="cursor-pointer header-font" @click="$router.push('/')">
             HOME
           </q-toolbar-title>
@@ -26,21 +26,21 @@
             @click="toggleLeftDrawer"
           />
         </div>
-      </q-toolbar>
+      </q-toolbar> -->
     </div>
 
     <div class="row" ref="sideBarElement" @resize="handleResize">
       <div
-        style="width: calc((100% - 1200px) / 2); height: calc(100vh - 50px)"
+        style="width: calc((100% - 800px) / 2); height: calc(100vh - 50px)"
         v-show="useSideBar"
       ></div>
-      <div class="row full-width" style="max-width: 1200px">
+      <div class="row full-width" style="max-width: 800px">
         <q-page-container>
           <router-view />
         </q-page-container>
       </div>
       <div
-        style="width: calc((100% - 1200px) / 2); height: calc(100vh - 50px)"
+        style="width: calc((100% - 800px) / 2); height: calc(100vh - 50px)"
         v-show="useSideBar"
       ></div>
     </div>
@@ -49,41 +49,43 @@
 
 <script setup lang="ts">
 import { onBeforeUnmount, onMounted, ref } from 'vue';
-import type { LinkProps } from './Layout.model';
+// import type { LinkProps } from './Layout.model';
 
 const pageScroll = ref(false);
 const scrollThrottle = ref(false);
 const useSideBar = ref(false);
 
-const essentialLinks: LinkProps[] = [
-  {
-    title: 'Docs',
-    caption: 'quasar.dev',
-    icon: 'school',
-    link: 'Docs',
-    anchor: false,
-  },
-  {
-    title: 'Career',
-    caption: 'forum.quasar.dev',
-    icon: 'record_voice_over',
-    link: 'Career',
-    anchor: false,
-  },
-  {
-    title: 'Github',
-    caption: 'github.com/quasarframework',
-    icon: 'code',
-    link: 'https://github.com/dofoong',
-    anchor: true,
-  },
-];
+// const maxWidth = '800px';
 
-const leftDrawerOpen = ref(false);
+// const essentialLinks: LinkProps[] = [
+//   {
+//     title: 'Docs',
+//     caption: 'quasar.dev',
+//     icon: 'school',
+//     link: 'Docs',
+//     anchor: false,
+//   },
+//   {
+//     title: 'Career',
+//     caption: 'forum.quasar.dev',
+//     icon: 'record_voice_over',
+//     link: 'Career',
+//     anchor: false,
+//   },
+//   {
+//     title: 'Github',
+//     caption: 'github.com/quasarframework',
+//     icon: 'code',
+//     link: 'https://github.com/dofoong',
+//     anchor: true,
+//   },
+// ];
 
-function toggleLeftDrawer() {
-  leftDrawerOpen.value = !leftDrawerOpen.value;
-}
+// const leftDrawerOpen = ref(false);
+
+// function toggleLeftDrawer() {
+//   leftDrawerOpen.value = !leftDrawerOpen.value;
+// }
 
 function genDragHeight() {
   if (!scrollThrottle.value) {
@@ -100,9 +102,9 @@ function genDragHeight() {
   }
 }
 
-function openPage(href?: string) {
-  window.open(href, '_blank');
-}
+// function openPage(href?: string) {
+//   window.open(href, '_blank');
+// }
 
 const sideBarElement = ref(null as HTMLDivElement | null);
 

@@ -1,12 +1,13 @@
 <template>
   <div>
-    <div class="flex flex-center q-mx-md">
-      <career-component
-        v-for="(carr, caIdx) in Careers"
-        :key="caIdx"
-        :header="carr.haeder"
-        :main-contents="carr.mainContents"
-      />
+    <div class="flex flex-center q-mx-md bottom-border">
+      <div class="q-py-md full-width flex flex-center" style="font-size: 1.6rem; font-weight: 600">
+        사용자의 편의와 경험을 최우선으로 생각하는 김도훈 입니다.
+      </div>
+
+      <div class="q-py-md" v-for="(carr, caIdx) in Careers" :key="caIdx">
+        <career-component :header="carr.haeder" :main-contents="carr.mainContents" />
+      </div>
     </div>
   </div>
 </template>
@@ -22,15 +23,15 @@ export interface careerListModel {
 
 const Careers = ref([
   {
-    haeder: 'PROFILE',
+    haeder: 'Contact',
     mainContents: [
       {
-        caption: 'CAPTION test4',
-        content: 'CONTENT test1',
+        caption: 'Email',
+        content: 'hoone2@gmail.com',
       },
       {
-        caption: 'CAPTION test4545454',
-        content: 'CONTENT test2',
+        caption: 'GitHub',
+        content: 'https://github.com/dofoong',
       },
     ],
   },

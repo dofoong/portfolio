@@ -1,11 +1,11 @@
 <template>
-  <div class="row" style="width: 1200px">
+  <div class="row" style="width: 800px">
     <div class="header col-3 row items-center" style="font-size: 2rem; color: darkslateblue">
       <div
         style="width: 5px; background-color: darkslateblue; height: calc(100% - 20px)"
         class="q-mr-sm"
       ></div>
-      <div>
+      <div style="font-weight: 500">
         {{ props.header }}
       </div>
     </div>
